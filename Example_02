@@ -1,0 +1,10 @@
+package com.chenjian.test;
+
+public class Example_02 {
+		int i;
+		public float f;
+		protected boolean b;
+		private String s;
+	}
+首先创建一个Example_02类，在该类中依次声明一个int、float、boolean和String型的成员变量
+并将他们设置为不同的访问权限
