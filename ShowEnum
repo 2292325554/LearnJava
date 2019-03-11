@@ -1,0 +1,68 @@
+package Java1;
+/**
+ * 类名称：操作枚举类型成员的方法
+ * 类描述：在项目中创建ShowEnum类，在该类中使用枚举类型中的values（）方法获取枚举类型中的成员变量
+ * 创建人：陈键
+ * 创建时间：2019/3/21 22/00
+ * 修改备注：ShowEnum
+ * @author 1.1.1
+ */
+import static java.lang.System.out;
+public class ShowEnum {
+     enum Constants2{   //将常量放置在枚举类型中
+    	 Constants_A,Constants_B
+     }
+     //循环由values()方法返回的数据
+     public static void main(String[] args){
+    	 for(int i = 0;i<Constants2.values().length;i++){
+			//将枚举成员变量打印
+    		 out.println("枚举类型成员变量:"+Constants2.values()[i]);
+    	 }
+     }
+}
+运行结果：
+枚举类型成员变量:Constants_A
+枚举类型成员变量:Constants_B
+
+package Java1;
+import static java.lang.System.out;
+public class EnumlndexTest {
+     enum Constants2{  //将常量放置在枚举类型中
+    	 Constants_A,Constants_B,Constants_C
+     }
+     public static void main(String[] args){
+    	 for(int i = 0;i < Constants2.values().length;i++){
+    	 //在循环中获取枚举类型成员的索引位置
+    	 out.println(Constants2.values()[i]+"在枚举类型中位置索引值"
+    			 +Constants2.values()[i].ordinal());
+     }
+}
+}
+运行结果：
+Constants_A在枚举类型中位置索引值0
+Constants_B在枚举类型中位置索引值1
+Constants_C在枚举类型中位置索引值2
+
+package Java1;
+import static java.lang.System.out;
+public class EnumMethodTest {
+     enum Constants2{  //将常量放置在枚举类型中
+    	 Constants_A,Constants_B
+     }
+     //定义比较枚举类型方法，参数类型为枚举类型
+     public static void compare(Constants2 c){
+    	 //根据values()方法返回的数组做循环操作
+    	 for(int i = 0;i < Constants2.values().length;i++){
+    		 //将比较结果返回
+    		 out.println(c+"与"+Constants2.values()[i]+"的比较结果为:"
+    				 +c.compareTo(Constants2.values()[i]));
+    	 }
+     }
+     //在主方法中调用compare（）方法
+     public static void main(String[] args){
+    	 compare(Constants2.valueOf("Constants_B"));
+     }
+}
+运行结果：
+Constants_B与Constants_A的比较结果为:1
+Constants_B与Constants_B的比较结果为:0
